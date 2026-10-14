@@ -5,7 +5,10 @@ from typing import List, Optional,Literal
 import pickle
 import pandas as pd
 import joblib
-model = joblib.load("model.pkl")
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+model = joblib.load(BASE_DIR / "model.pkl")
 app=FastAPI()
 from fastapi.middleware.cors import CORSMiddleware
 
