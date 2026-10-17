@@ -12,16 +12,18 @@ model = joblib.load(BASE_DIR / "model.pkl")
 app=FastAPI()
 from fastapi.middleware.cors import CORSMiddleware
 
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-    "http://localhost:5500",
-    "http://127.0.0.1:5500",
-    "https://YOUR-FRONTEND-URL.onrender.com",
-],
+        "http://localhost:5500",
+        "http://127.0.0.1:5500",
+        "https://student-performance-predictor-y225.onrender.com"
+    ],
     allow_methods=["POST"],
     allow_headers=["Content-Type"],
 )
+
 class InputData(BaseModel):
 		school: Literal["GP", "MS"]
 		sex: Literal["F", "M"]
